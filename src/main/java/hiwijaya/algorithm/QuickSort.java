@@ -9,7 +9,11 @@ import java.util.Arrays;
  *
  * - Also known as "partition-exchange sort".
  * - Implemented "in-place", it means no need duplicated.
- * - Complexity O(n log n) -> best part
+ * - Complexity O(n log n) -> best/average case
+ * - In QuickSort, partition is the key process.
+ * - There are two partition scheme in QuickSort, Lomuto's and Hoare's partition scheme.
+ * - Hoare's partition scheme used two indexes move toward each other until an inversion is found.
+ *
  *
  * Step:
  * 1. Picks an element as a "pivot". It can be first, last, median, or even random element.
@@ -28,8 +32,9 @@ import java.util.Arrays;
  */
 public class QuickSort {
 
-    private void sort(Integer[] arr, int low, int high){
+    private void lomutoPartitionSort(Integer[] arr, int low, int high){
 
+        // break the loop
         if(low < high){
 
             // pivot with last element
@@ -49,13 +54,52 @@ public class QuickSort {
             // move pivot to i+1 to make partition
             swap(arr, pi, high);
 
-            sort(arr, low, pi-1);
-            sort(arr, pi+1, high);
+            lomutoPartitionSort(arr, low, pi-1);
+            lomutoPartitionSort(arr, pi+1, high);
 
         }
     }
 
-    private void sort2(Integer arr, int low, int high){
+    private void hoarePartitionSort(Integer[] arr, int low, int high){
+
+        // break the loop
+        if(low >= high){
+            return;
+        }
+
+        // get the pivot element from the middle of the list
+        int middle = low + (high - low) / 2;
+        int pivot = arr[middle];
+
+        int i = low;
+        int j = high;
+        while(i <= j){
+
+            // check until all values on left side array are lower than pivot
+            while(arr[i] < pivot){
+                i++;
+            }
+
+            // check until all values on right side array are greater than pivot
+            while(arr[j] > pivot){
+                j--;
+            }
+
+            // do swap and move iterators on both side
+            if(i <= j){
+                swap(arr, i, j);
+                i++;
+                j--;
+            }
+        }
+
+        // do same operation as above recursively to sort two sub arrays
+        if(low < j){
+            hoarePartitionSort(arr, low, j);
+        }
+        if(high > i){
+            hoarePartitionSort(arr, i, high);
+        }
 
     }
 
@@ -70,8 +114,10 @@ public class QuickSort {
 
         QuickSort app = new QuickSort();
 
-        Integer[] input = new Integer[] {20, 10, 35, 2, 5, 35, 40, 60, 15, 30, 5, 35};
-        app.sort(input, 0, input.length - 1);
+        Integer[] input = new Integer[] {20, 10, 35, 2, 5, 35, 40, 60, 15, 30, 5, 10};
+
+        app.lomutoPartitionSort(input, 0, input.length - 1);
+        app.hoarePartitionSort(input, 0, input.length - 1);
 
         System.out.println(Arrays.toString(input));
 
