@@ -76,12 +76,12 @@ public class QuickSort {
         while(i <= j){
 
             // check until all values on left side array are lower than pivot
-            while(arr[i] < pivot){
+            while(arr[i] < pivot){      // asc/desc
                 i++;
             }
 
             // check until all values on right side array are greater than pivot
-            while(arr[j] > pivot){
+            while(arr[j] > pivot){      // asc/desc
                 j--;
             }
 
