@@ -8,13 +8,16 @@ import java.util.Arrays;
  * BubbleSort
  *
  * - This algorithm works by repeatedly swapping the adjacent element if they are in wrong order.
- * - Implemented "in-place", it means no need duplicated.
- * - Complexity O(n2), it quite inefficient for sorting large data volumes.
+ * - "in-place" algorithm, it means no need duplicated.
+ * - It quite inefficient for sorting large data volumes.
  * - The algorithm needs one more whole pass(iteration) without any swap to know it is sorted.
  *
  * Step:
- * - go through until the last element and re-arrange its position with neighbor if they are in wrong order.
- * - repeat until no more element to be swap.
+ * 1. go through until the last element and re-arrange its position with neighbor if they are in wrong order.
+ * 2. repeat until no more element to be swap.
+ *
+ * Complexity:
+ * - O(n2)
  *
  * ref:
  * - https://www.geeksforgeeks.org/bubble-sort/

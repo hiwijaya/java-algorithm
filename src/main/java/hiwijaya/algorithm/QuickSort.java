@@ -8,12 +8,11 @@ import java.util.Arrays;
  * QuickSort
  *
  * - Also known as "partition-exchange sort".
- * - Implemented "in-place", it means no need duplicated.
- * - Complexity O(n log n) -> best/average case
+ * - Is a "divide and conquer algorithm".
+ * - "in-place" algorithm, it means no need duplicated.
  * - In QuickSort, partition is the key process.
  * - There are two partition scheme in QuickSort, Lomuto's and Hoare's partition scheme.
  * - Hoare's partition scheme used two indexes move toward each other until an inversion is found.
- *
  *
  * Step:
  * 1. Picks an element as a "pivot". It can be first, last, median, or even random element.

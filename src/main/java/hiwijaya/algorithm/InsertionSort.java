@@ -10,8 +10,7 @@ import java.util.Arrays;
  * - This algorithm works by repeatedly takes the next element from the un-sorted section and
  *   inserts it into the sorted section at the correct position.
  * - The idea behind this algorithm is like ordering cards in your hand.
- * - Complexity O(n2)
- * - Implemented "in-place", it means no need duplicated.
+ * - "in-place" algorithm, it means no need duplicated.
  * - ONLINE algorithm. Can sort a list as it receives it.
  * - Used for small data input sets and efficient for data with almost sorted.
  *
@@ -19,6 +18,9 @@ import java.util.Arrays;
  * 1. take an element sequentially.
  * 2. insert the element into the sorted section at the correct position based on the comparable property.
  * 3. repeat until no more element in the uncorrect position
+ *
+ * Complexity:
+ * - O(n2)
  *
  * Ref:
  * - https://www.geeksforgeeks.org/insertion-sort/
