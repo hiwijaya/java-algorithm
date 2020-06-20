@@ -35,15 +35,15 @@ public class InsertionSort {
 
         for(int i=1; i<n; i++){
 
-            int key = arr[i];
+            int pivot = arr[i];
             int j = i-1;
 
-            while(j>=0 && arr[j] > key){
+            while(j>=0 && arr[j] > pivot){
                 arr[j+1] = arr[j];
                 j--;
             }
 
-            arr[j+1] = key;
+            arr[j+1] = pivot;
         }
     }
 
